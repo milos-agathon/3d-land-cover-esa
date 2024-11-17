@@ -6,4 +6,8 @@ Here is what you will be able to make.
 
 ## 2D land cover map
 
+![alt text](https://github.com/milos-agathon/3d-land-cover-esa/blob/main/img/belgium-landcover-2d.png?raw=true)
+
 ## 3D land cover map
+
+![alt text](https://github.com/milos-agathon/3d-land-cover-esa/blob/main/img/belgium-esa-3d.png?raw=true)
