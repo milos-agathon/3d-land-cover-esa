@@ -77,6 +77,11 @@ land_cover_raster <- terra::vrt(
     raster_files
 )
 
+country_sf <- sf::st_transform(
+    country_sf,
+    crs = sf::st_crs(land_cover_raster)
+)
+
 country_land_cover <- terra::crop(
     land_cover_raster,
     country_sf,
@@ -136,14 +141,6 @@ theme_for_the_win <- function(){
             panel.grid.minor = element_blank(),
             plot.background = element_rect(
                 fill = "white", color = NA),
-            legend.background = element_blank(),
-            legend.position = c(.2, .3),
-            legend.title = element_text(
-                size = 11, color = "grey10"
-            ),
-            legend.text = element_text(
-                size = 10, color = "grey10"
-            ),
             plot.title = element_text(
                 size = 20, color = "grey10",
                 hjust = .5, vjust = -2
@@ -254,7 +251,17 @@ lc_map <- ggplot() +
         title = "Land cover | BELGIUM",
         caption = "©2024 Milos Popovic\nData: ©ESA WorldCover project 2021"
     ) +
-    theme_for_the_win()
+    theme_for_the_win() +
+    theme(
+        legend.background = element_blank(),
+        legend.position = c(.2, .3),
+        legend.title = element_text(
+            size = 11, color = "grey10"
+            ),
+        legend.text = element_text(
+            size = 10, color = "grey10"
+            )
+        )
 
 ggsave(
   "belgium-landcover-2d.png", lc_map,
