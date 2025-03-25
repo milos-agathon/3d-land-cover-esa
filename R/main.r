@@ -283,7 +283,7 @@ dem_map <- ggplot() +
     geom_raster(
         data = dem_df,
         aes(
-            x, = x, y = y, fill = dem
+            x = x, y = y, fill = dem
         )
     ) +
     scale_fill_gradientn(
